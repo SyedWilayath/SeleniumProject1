@@ -45,6 +45,7 @@ public class TestClass1 {
 	    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setBrowserName("chrome");
 		capabilities.setPlatform(Platform.LINUX);
+		capabilities.setVersion("1");
            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
             // Set timeouts and window management
