@@ -23,6 +23,10 @@ import net.rcarz.jiraclient.Issue;
 import net.rcarz.jiraclient.JiraClient;
 import net.rcarz.jiraclient.JiraException;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class TestClass1 {
 	
 	
@@ -43,8 +47,13 @@ public class TestClass1 {
 		// driver.manage().window().fullscreen();
 	String CHROMEDRIVER_PATH = System.getenv("JENKINS_HOME");
 	   System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_PATH+"/chromedriver-linux64/chromedriver");
-           driver = new ChromeDriver();
 
+		Path tempDir = Files.createTempDirectory("chrome-user-data");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--user-data-dir=" + tempDir.toString());
+
+         driver = new ChromeDriver(options);
+		
             // Set timeouts and window management
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().fullscreen();
