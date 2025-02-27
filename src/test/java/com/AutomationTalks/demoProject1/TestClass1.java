@@ -43,8 +43,9 @@ public class TestClass1 {
 		// driver.manage().window().fullscreen();
 
 		 // Set the path to the ChromeDriver executable
-            System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
-
+		String chromeDriverPath = System.getenv("CHROMEDRIVER_PATH");
+            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		
             // Initialize ChromeOptions and ChromeDriver
             ChromeOptions options = new ChromeOptions();
 
