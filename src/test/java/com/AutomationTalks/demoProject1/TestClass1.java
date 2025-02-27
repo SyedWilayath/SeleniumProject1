@@ -41,7 +41,7 @@ public class TestClass1 {
 		
 		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// driver.manage().window().fullscreen();
-
+	String CHROMEDRIVER_PATH = System.getenv("CHROMEDRIVER_PATH");
 	   System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
            driver = new ChromeDriver();
 
