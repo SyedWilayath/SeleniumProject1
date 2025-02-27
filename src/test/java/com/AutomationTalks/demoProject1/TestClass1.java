@@ -47,9 +47,12 @@ public class TestClass1 {
 
             // Initialize ChromeOptions and ChromeDriver
             ChromeOptions options = new ChromeOptions();
-            options.setBrowserName("chrome");
-            options.setPlatformName("LINUX");
-            WebDriver driver = new ChromeDriver(options);
+
+            options.addArguments("--headless"); // Run Chrome in headless mode
+            options.addArguments("--no-sandbox"); // Bypass OS security model, required for running in containers
+            options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+            
+            driver = new ChromeDriver(options);
 
             // Set timeouts and window management
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
