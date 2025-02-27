@@ -29,16 +29,29 @@ public class TestClass1 {
 	
 	@BeforeMethod
 	public void launchDriver() throws MalformedURLException {
-		DesiredCapabilities dr = null;
-		dr = DesiredCapabilities.chrome();
-		dr.setBrowserName("chrome");
-		dr.setPlatform(Platform.LINUX);
-		System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
+		// DesiredCapabilities dr = null;
+		// dr = DesiredCapabilities.chrome();
+		// dr.setBrowserName("chrome");
+		// dr.setPlatform(Platform.LINUX);
+		// System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
 		
-		driver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), dr);
+		// driver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), dr);
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().fullscreen();
+		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		// driver.manage().window().fullscreen();
+
+		 // Set the path to the ChromeDriver executable
+            System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
+
+            // Initialize ChromeOptions and ChromeDriver
+            ChromeOptions options = new ChromeOptions();
+            options.setBrowserName("chrome");
+            options.setPlatformName("LINUX");
+            WebDriver driver = new ChromeDriver(options);
+
+            // Set timeouts and window management
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().window().fullscreen();
 	}
 	
 	@Test
