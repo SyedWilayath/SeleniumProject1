@@ -43,6 +43,8 @@ public class TestClass1 {
 		// driver.manage().window().fullscreen();
 
 	    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		capabilities.setBrowserName("chrome");
+		capabilities.setPlatform(Platform.LINUX);
            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
             // Set timeouts and window management
