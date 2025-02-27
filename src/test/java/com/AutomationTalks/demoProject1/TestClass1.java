@@ -42,11 +42,8 @@ public class TestClass1 {
 		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// driver.manage().window().fullscreen();
 
-	    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setBrowserName("chrome");
-		capabilities.setPlatform(Platform.LINUX);
-		capabilities.setVersion("1");
-           driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+	   System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
+           driver = new ChromeDriver();
 
             // Set timeouts and window management
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
