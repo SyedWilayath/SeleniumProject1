@@ -33,7 +33,7 @@ public class TestClass1 {
 		dr = DesiredCapabilities.chrome();
 		dr.setBrowserName("chrome");
 		dr.setPlatform(Platform.LINUX);
-		System.setProperty("webdriver.chrome.driver", "P:\\2. Selenium Data\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Personal\\chromedriver.exe");
 		
 		driver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), dr);
 		
