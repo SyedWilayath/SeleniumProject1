@@ -42,18 +42,8 @@ public class TestClass1 {
 		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// driver.manage().window().fullscreen();
 
-		 // Set the path to the ChromeDriver executable
-		String chromeDriverPath = System.getenv("CHROMEDRIVER_PATH");
-            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		
-            // Initialize ChromeOptions and ChromeDriver
-            ChromeOptions options = new ChromeOptions();
-
-            options.addArguments("--headless"); // Run Chrome in headless mode
-            options.addArguments("--no-sandbox"); // Bypass OS security model, required for running in containers
-            options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
-            
-            driver = new ChromeDriver(options);
+	    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+           driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
             // Set timeouts and window management
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
